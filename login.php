@@ -57,7 +57,7 @@ if(isset($_POST) && $_POST){
 
 <body>
 <form method="post">
-  <table border="1" align="center" width="200">
+  <table border="1" align="center" width="300">
   	<tr  align="center">
   		<th colspan="2">登录ITD德育分管理系统</th>
 	</tr> 
