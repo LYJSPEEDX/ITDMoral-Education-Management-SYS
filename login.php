@@ -36,7 +36,7 @@ if(isset($_POST) && $_POST){
     $_SESSION['name']=$usr;
 
     //跳转,"Location: www.baidu.com"
-    header("Location: list.php");
+    header("Location: scorechange.php");
   }
 
   else{
