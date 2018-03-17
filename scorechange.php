@@ -21,9 +21,9 @@ if(isset($_POST) && $_POST ){
 		$action = $output[0];
 		$number = $output[1];
 		if ($action == 3 )
-			die("<script>alert('分数参数出错！\\n不符合分数操作规则！');window.location.href='scorechange.php'</script>");
+			die("<script>alert('分数参数出错！\\n不符合分数操作规则！');window.location.href='scorechange.php';</script>");
 	}else{
-		die("<script>alert('学号输入出错！;window.location.href='scorechange.php'\\n该学生不存在！')</script>");
+		die("<script>alert('学号输入出错！\\n该学生不存在！');window.location.href='scorechange.php';</script>");
 	}
 
 	//核对变量生成

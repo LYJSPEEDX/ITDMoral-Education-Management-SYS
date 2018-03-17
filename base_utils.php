@@ -30,9 +30,9 @@ function isexist($sid){
 	$sql = "SELECT  sid FROM students WHERE sid='$sid'";
 	$query=mysqli_query($conn,$sql);
 	if (mysqli_num_rows($query) == 0){
-		return 0;
+		return false;
 	}else{
-		return 1;
+		return true;
 	}
 }
 
