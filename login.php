@@ -22,7 +22,7 @@ if(isset($_POST) && $_POST){
   $query=mysqli_query($conn,$sql);
 
   //略……（除了SELECT，其他都不用fetch_array）
-  $result=mysqli_fetch_array($query);
+  $result=mysqli_fetch_assoc($query);
   
   //获取表数据，$result['xx']的xx为表字段名
   $indb_pw=$result['pw'];

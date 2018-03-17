@@ -4,7 +4,7 @@
 
   //此处使用Mysqli连接，在之后的开发也必须使用Mysqli。
   //设定变量conn，在之后的开发只需引入此文件，并使用$conn连接即可。
-  $conn=@mysqli_connect("localhost","root","usbw","itdmoral");
+  $conn=@mysqli_connect("localhost","root","usbw","itdmoral","3306");
 
   //PHP内置函数（Errno为错误码）
   if(mysqli_connect_errno($conn)){
