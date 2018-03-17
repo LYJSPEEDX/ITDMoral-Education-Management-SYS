@@ -84,7 +84,7 @@ if(isset($_POST) && $_POST ){
 </table>
 </form>
 <?php
- if (isset($action))echo " DEBUG INFO: action: |$action|          number: |$number|<br>";    //debug
+ if (isset($action))echo " <font color='red'>DEBUG INFO: action: |$action|          number: |$number|</font>";    //debug
 ?>
 </body>
 </html>
