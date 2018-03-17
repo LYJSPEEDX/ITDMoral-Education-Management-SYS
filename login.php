@@ -1,5 +1,4 @@
 <?php
-
 //启用Session，必须在所有PHP代码前使用。
 session_start();
 
@@ -16,7 +15,7 @@ if(isset($_POST) && $_POST){
   $pw=md5($_POST['pw']);
   
   //定义要执行的SQL语句，在适当位置插入变量↓↓↓。常用SQL语句看Wiki
-  $sql="SELECT * FROM admin WHERE usrid='{$usr}'";
+  $sql="SELECT * FROM user WHERE usrid='{$usr}'";
 
   //执行语句，第一个参数为数据库连接（已配置），第二个为SQL语句
   $query=mysqli_query($conn,$sql);
@@ -53,17 +52,17 @@ if(isset($_POST) && $_POST){
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ITD德育分管理系统</title>
+<title>登录ITD德育分管理系统</title>
 </head>
 
 <body>
 <form method="post">
-  <table border="1" align="center">
+  <table border="1" align="center" width="200">
   	<tr  align="center">
   		<th colspan="2">登录ITD德育分管理系统</th>
-	</tr>
+	</tr> 
   	<tr>
-  		<td align="center">用户名</td>
+  		<td align="center">姓名</td>
   		<td align="center"><input type="text" name="usr"></td>
 	<tr/>
 	<tr>
@@ -71,12 +70,13 @@ if(isset($_POST) && $_POST){
 		<td align="center"><input type="text" name="pw"></td>
 	<tr/>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="确定"></td>
+		<td colspan="2" align="center"><input type="submit" value="登录"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><b>© 2018 ITD·LD .LLC</b></td>
 	</tr>
 </table>
 </form>
+<div align="center"><button onclick="window.location.href='register.php'">验证注册入口</button></div>
 </body>
 </html>

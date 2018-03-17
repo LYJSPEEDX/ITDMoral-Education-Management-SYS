@@ -27,7 +27,7 @@ if(isset($_POST) && $_POST ){
 	}
 
 	//核对变量生成
-        $check = mysqli_fetch_assoc(checkstudent($sid));
+        $check = checkstudent($sid);
   	$check = $check['name'];  
   	$action = ($action == 1)? "加" : "减";  
   	$num = abs($number);

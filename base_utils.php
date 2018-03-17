@@ -20,7 +20,7 @@ function processinputreason($action,$reason){
 function checkstudent($sid){
 	require("sql.config.php");
 	$sql = "SELECT name FROM students WHERE sid = '$sid'";
-	return (mysqli_query($conn,$sql));
+	return (mysqli_fetch_assoc(mysqli_query($conn,$sql)));
 }
 
 
