@@ -15,7 +15,7 @@ if(isset($_POST) && $_POST){
   $pw=md5($_POST['pw']);
   
   //定义要执行的SQL语句，在适当位置插入变量↓↓↓。常用SQL语句看Wiki
-  $sql="SELECT * FROM user WHERE usrid='{$usr}'";
+  $sql="SELECT * FROM user WHERE sid='$usr'";
 
   //执行语句，第一个参数为数据库连接（已配置），第二个为SQL语句
   $query=mysqli_query($conn,$sql);
@@ -26,8 +26,10 @@ if(isset($_POST) && $_POST){
   //获取表数据，$result['xx']的xx为表字段名
   $indb_pw=$result['pw'];
 
+  $user_status = $result['status'];
+
   //判断输入的密码是否与表内匹配
-  if($pw==$indb_pw){
+  if($pw==$indb_pw && $user_status == "admin"){
     //匹配，将Session-isLog定义为true
     $_SESSION['isLog']=true;
 
@@ -40,7 +42,7 @@ if(isset($_POST) && $_POST){
 
   else{
     $_SESSION['isLog']=false;
-    echo "<script>alert('用户名或密码错！')</script>";
+    echo "<script>alert('你已被权限系统封禁！')</script>";
   }
   
 } 

@@ -3,6 +3,14 @@
 Author : LD and more
 */
 
+//注册检验
+function checkreg($sid){
+	require("sql.config.php");
+	$sql = "SELECT * FROM user WHERE sid = '$sid'";
+	if (mysqli_num_rows(mysqli_query($conn,$sql)) == 0) return false; 
+		else return true;
+}
+
 //原因处理函数
 function processinputreason($action,$reason){
 	if ($action ==1){

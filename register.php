@@ -1,16 +1,30 @@
 <?php
-require_once("sql.config.php");
+require("sql.config.php");
 require("base_utils.php");
 
 if(isset($_POST) && $_POST){
+
 	$name = $_POST['name'];  
 	$sid = $_POST['sid'];
-	$pw = $_POST['pw'];
+	$pw = ($_POST['pw']);
+	$_POST['admin'] = (isset($_POST['admin']))? $_POST['admin']:false;
+
 	$admin = ($_POST['admin'] == true)? "选择了" : "未选择";  
-	echo "<script>if(! confirm('确定数据无误？点击取消重新填写。\\n你 $admin 信息部权限')) window.location.href='register.php'</script>";
-	$check = (checkstudent($sid));
-	if ($check['name'] == $name && strlen($pw) >=8) 
-		die("<script>alert('操作成功，将自动跳转！'); window.location.href='login.php';</script>"); else die("<script>alert('学号与姓名绑定错误或密码少于8位！'); window.location.href='register.php';</script>");
+	echo "<script>if(! confirm('确定数据无误？点击取消重新填写。\\n牢记你的密码！\\n你 $admin 信息部权限，虚假填报将导致你的账户验证失败！')) window.location.href='register.php'</script>";
+ 
+ 	$check = (checkstudent($sid));
+ 	if ($check['name'] != $name) die("<script>alert('学号与姓名绑定失败！\\n确保输入了正确的姓名和学号！'); window.location.href='register.php';</script>");
+	if (checkreg($sid)) die("<script>alert('你已经注册，请勿重复操作！'); window.location.href='login.php';</script>");
+
+	
+	if (strlen($pw) >=8) {
+		$pw = md5($pw);
+		$status = ($_POST['admin'] == true)? "check" : "normal";
+		$sql = "INSERT INTO user (usrname,sid,pw,status) VALUES ('$name','$sid','$pw','$status')";
+
+		if (mysqli_query($conn,$sql)) die("<script>alert('操作成功，将自动跳转！'); window.location.href='login.php';</script>"); else die("<script>alert('严重错误！'); </script>");
+
+	}else die("<script>alert('密码小于8位！'); window.location.href='register.php';</script>");
 
 }
 ?>
