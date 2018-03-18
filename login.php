@@ -40,7 +40,7 @@ if(isset($_POST) && $_POST){
 
   else{
     $_SESSION['isLog']=false;
-    echo "<script>alert('你已被权限系统封禁！')</script>";
+    echo "<script>alert('学号或密码输出出错！\\n或你未验证成功，Access Denied！\\n[ITD公告]暂时未开放非部内权限访问')</script>";
   }
   
 } 
@@ -62,7 +62,7 @@ if(isset($_POST) && $_POST){
   		<th colspan="2">登录ITD德育分管理系统</th>
 	</tr> 
   	<tr>
-  		<td align="center">姓名</td>
+  		<td align="center">学号</td>
   		<td align="center"><input type="text" name="usr"></td>
 	<tr/>
 	<tr>
