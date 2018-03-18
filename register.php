@@ -18,7 +18,6 @@ if(isset($_POST) && $_POST){
 
 	
 	if (strlen($pw) >=8) {
-		$pw = md5($pw);
 		$status = ($_POST['admin'] == true)? "check" : "normal";
 		$sql = "INSERT INTO user (usrname,sid,pw,status) VALUES ('$name','$sid','$pw','$status')";
 

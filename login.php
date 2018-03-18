@@ -10,9 +10,7 @@ if(isset($_POST) && $_POST){
   //获取usr编辑框的内容（usr为编辑框的Name）
   $usr=$_POST['usr'];
 
-  //先获取pw的内容，然后MD5
-  //MD5为内置函数
-  $pw=md5($_POST['pw']);
+  $pw=($_POST['pw']);
   
   //定义要执行的SQL语句，在适当位置插入变量↓↓↓。常用SQL语句看Wiki
   $sql="SELECT * FROM user WHERE sid='$usr'";
