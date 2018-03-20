@@ -53,7 +53,7 @@ if(isset($_POST) && $_POST){
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>登录ITD德育分管理系统</title>
-
+<?php include("head.php");  ?>
 </head>
 
 <body>

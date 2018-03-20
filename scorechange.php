@@ -51,11 +51,10 @@ if(isset($_POST) && $_POST ){
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>ITD德育分插入面板</title>
+<?php include("head.php");  ?>
 </head>
 <body>
 <?php 
