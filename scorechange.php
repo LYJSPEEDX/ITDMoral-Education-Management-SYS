@@ -86,5 +86,6 @@ if(isset($_POST) && $_POST ){
 <?php
  if (isset($action))echo " <font color='red'>DEBUG INFO: action: |$action|          number: |$number|</font>";    //debug
 ?>
+<?php include("footer.php"); ?>
 </body>
 </html>

@@ -70,5 +70,6 @@ if(isset($_POST) && $_POST){
 </table>
 </form>
 <div align="center"></dir><button onclick="window.location.href='login.php'"><b>返回登录</b></button></div>
+<?php include("footer.php"); ?>
 </body>
 </html>
