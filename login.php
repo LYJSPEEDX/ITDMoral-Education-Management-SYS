@@ -53,6 +53,7 @@ if(isset($_POST) && $_POST){
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>登录ITD德育分管理系统</title>
+
 </head>
 
 <body>
@@ -67,16 +68,17 @@ if(isset($_POST) && $_POST){
 	<tr/>
 	<tr>
 		<td align="center">密码</td>
-		<td align="center"><input type="text" name="pw"></td>
+		<td align="center"><input type="password" name="pw"></td>
 	<tr/>
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="登录"></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><b>© 2018 ITD·LD .LLC</b></td>
+		<td colspan="2" align="center"><b>© 2018 ITD·LYJ .LLC</b></td>
 	</tr>
 </table>
 </form>
 <div align="center"><button onclick="window.location.href='register.php'">验证注册入口</button></div>
+<?php include("footer.php"); ?>
 </body>
 </html>
