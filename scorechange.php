@@ -73,7 +73,7 @@ if(isset($_POST) && $_POST ){
 		<td align="center"><input type="text" name="reason"></td>
 </tr>
 <tr>
-		<td colspan="3" align="center"><input type="submit" value="确定"></td>
+		<td colspan="3" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent', 'scorechange', 'basicentry'])" value="确定"></td>
 </tr>
 <tr>
 	<td colspan="3" align="center"><b>注意：扣分请输入'-'，单次分数变动不可大于20分！</b></td>
