@@ -65,7 +65,7 @@ if(isset($_POST) && $_POST){
 				<th>序号</th>
 				<th width=20%>日期</th>
 				<th width=20%>原因</th>
-				<th>变动</th>
+				<th>分数变动</th>
 				<th>受理编号</th>
 			</tr>
 EOT;
