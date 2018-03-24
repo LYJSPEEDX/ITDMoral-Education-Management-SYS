@@ -60,7 +60,7 @@ if(isset($_POST) && $_POST){
 		<td colspan="2" align="center"><input type="checkbox" name="admin" value="true" /> ITD·ERSD部员认证</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent','register','new','test'])" value="提交"></td>
+		<td colspan="2" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent', 'nav', 'click', 'literature'])" value="提交"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">请在此处<b>如实</b>填写个人资料<br>完成德育分个人系统认证<br>来获取你的德育分管理权<br>核验工作日为一天<br>ITD仅受理高一级的验证请求<br>*ERSD部员请勾选复选框<br><b>涉嫌破解该系统将会受到纪律检控</b></td>
