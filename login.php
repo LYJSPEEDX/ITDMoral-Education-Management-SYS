@@ -51,14 +51,15 @@ if(isset($_POST) && $_POST){
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <title>登录ITD德育分管理系统</title>
 <?php include("head.php");  ?>
 </head>
 
 <body>
-<form method="post">
+
   <table border="1" align="center" width="300">
+    <form method="post">
   	<tr  align="center">
   		<th colspan="2">登录ITD德育分管理系统</th>
 	</tr> 
@@ -71,14 +72,14 @@ if(isset($_POST) && $_POST){
 		<td align="center"><input type="password" name="pw"></td>
 	<tr/>
 	<tr>
-		<td colspan="2" align="center"><input type="submit" value="登录"></td>
+		<td colspan="2" align="center"><input type="submit" value="登录"></form><button onclick="window.location.href='register.php'">部员验证</button></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><b>© 2018 ITD·LYJ .LLC</b></td>
 	</tr>
 </table>
-</form>
-<div align="center"><button onclick="window.location.href='register.php'">验证注册入口</button></div>
-<?php include("footer.php"); ?>
+<br>
+<div align="center"><button onclick="window.location.href='index.php'"><b>查询德育分</b></button></div>
+<!-- <?php include("footer.php"); ?> -->
 </body>
 </html>

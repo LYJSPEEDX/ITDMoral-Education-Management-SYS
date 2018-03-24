@@ -14,8 +14,6 @@
 
 <meta charset="utf-8">
 <!--在HTML内嵌入PHP代码-->
-<?php echo "ITDAntiCheat_SYS提示你: <br> 阁下操作正在被记录"; ?>
-
   <nav class="list1">
     <ul>
       <li><?php echo  $_SESSION['name']." 用户";?></li>

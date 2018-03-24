@@ -1,4 +1,3 @@
-<meta charset="utf-8">
 <?php
 /*
 Process Score Change
@@ -15,7 +14,7 @@ if(isset($_POST) && $_POST ){
 	$reason = $_POST['reason'];
 	
 	//对学号、操作、原因进行第一次验证
-	if (strlen($reason) <6 || !processinputreason(1,$reason))  die ("<script>alert('日期原因参数出错！');window.location.href='scorechange.php'</script>");
+	if (strlen($reason) <6 || !processreason(1,$reason))  die ("<script>alert('日期原因参数出错！');window.location.href='scorechange.php'</script>");
 	if (isexist($sid)){
 		$output = processinputstr($s);
 		$action = $output[0];
@@ -51,7 +50,7 @@ if(isset($_POST) && $_POST ){
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>ITD德育分插入面板</title>
 <?php include("head.php");  ?>
 </head>
@@ -78,12 +77,12 @@ if(isset($_POST) && $_POST ){
 	<td colspan="3" align="center"><b>注意：扣分请输入'-'，单次分数变动不可大于20分！</b></td>
 </tr>
 <tr>
-	<td colspan="3" align="center"><b>警示：日期格式为mmdd，即1月1日为0101！日期只可占前四位！</b></td>
+	<td colspan="3" align="center"><b><font color="blue">ITD权限监测系统：阁下操作正在被记录，请自重！</b></td>
 </table>
 </form>
 <?php
  if (isset($action))echo " <font color='red'>DEBUG INFO: action: |$action|          number: |$number|</font>";    //debug
 ?>
-<?php include("footer.php"); ?>
+<!-- <?php include("footer.php"); ?> -->
 </body>
 </html>

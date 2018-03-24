@@ -32,7 +32,7 @@ if(isset($_POST) && $_POST){
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <title>ITD德育分管理系统个人验证</title>
 <?php include("head.php");  ?>
 </head>
@@ -62,7 +62,7 @@ if(isset($_POST) && $_POST){
 		<td colspan="2" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent', 'register', 'new'])" value="提交"></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center">请在此处<b>如实</b>填写个人资料<br>完成德育分个人系统认证<br>来获取你的德育分管理权<br>核验工作日为一天<br>ITD仅受理高一级的验证请求<br>*ERSD部员请勾选复选框<br><b>涉嫌破解该系统将会受到纪律检控</b></td>
+		<td colspan="2" align="center">请在此处<b>如实</b>填写个人资料<br>完成德育分个人系统认证<br>来获取你的德育分管理权<br>核验工作日为一天<br>*ERSD部员请勾选复选框<br><b>涉嫌破解该系统将会受到纪律检控</b></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><b>© 2018 ITD·LD .LLC</b></td>
@@ -70,6 +70,6 @@ if(isset($_POST) && $_POST){
 </table>
 </form>
 <div align="center"></dir><button onclick="window.location.href='login.php'"><b>返回登录</b></button></div>
-<?php include("footer.php"); ?>
+<!-- <?php include("footer.php"); ?> -->
 </body>
 </html>

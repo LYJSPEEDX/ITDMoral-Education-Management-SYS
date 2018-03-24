@@ -3,7 +3,7 @@
 Author : LD and more
 */
 
-//注册检验
+//是否已经注册检验
 function checkreg($sid){
 	require("sql.config.php");
 	$sql = "SELECT * FROM user WHERE sid = '$sid'";
@@ -11,16 +11,20 @@ function checkreg($sid){
 		else return true;
 }
 
-//原因处理函数
-function processinputreason($action,$reason){
+//原因处理后 返回函数
+function processreason($action,$reason){
 	if ($action ==1){
 	$month = substr($reason, 0,2);
 	$day = substr($reason, 2,2);
-	$check = substr($reason, 4,1);
-	//die ("<script>alert(' $check ');</script>");
+	$check = substr($reason, 4,1);           //不允许日期后紧贴一个空格,防止输出混乱
 	if (1<= (int)$month && (int)$month<=12 && 1<=(int)$day && (int)$day<=31 && $check !=" ") return true; else return false;
-	}else{
-		return substr($reason,0,4);          //可返回日期
+	}
+
+	if ($action == 2){
+		$m = (int)substr($reason, 0,2);
+		$d = (int)substr($reason, 2,2);
+		$res = substr($reason, 4); 
+		return array($m,$d,$res);
 	}
 }
 

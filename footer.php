@@ -16,5 +16,5 @@ a:active {color: #0000FF}
 </style>
 
 <footer>
-  <div align="center"><p>ITD·LYJ 2018 All Rights Reserved<br>本系统基于MIT协议<a href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">开源</a>   一切疑问，以公众号为主</p></div>
+  <div align="center"><p>ITD·LYJ 2018 All Rights Reserved<br>本系统基于MIT协议<a href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">开源</a></p></div>
 </footer>
