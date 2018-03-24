@@ -7,7 +7,7 @@ if(isset($_POST) && $_POST){
 	$name= $_POST['name'];
 	$sid = $_POST['sid'];
 
-	if ((checkstudent($sid)) != $name) die ("<script>alert('键入姓名与学号不匹配！\\n请重新输入!'); window.location.href='listscore.php';</script>");
+	if ((checkstudent($sid)) != $name) die ("<script>alert('键入姓名与学号不匹配！\\n请重新输入!'); window.location.href='index.php';</script>");
 
 	$sql = "SELECT * FROM detail WHERE sid='$sid'";
 	$query = mysqli_query($conn,$sql);
