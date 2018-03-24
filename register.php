@@ -12,8 +12,7 @@ if(isset($_POST) && $_POST){
 	$admin = ($_POST['admin'] == true)? "选择了" : "未选择";  
 	echo "<script>if(! confirm('确定数据无误？点击取消重新填写。\\n牢记你的密码！\\n你 $admin 信息部权限，虚假填报将导致你的账户验证失败！')) window.location.href='register.php'</script>";
  
- 	$check = (checkstudent($sid));
- 	if ($check['name'] != $name) die("<script>alert('学号与姓名绑定失败！\\n确保输入了正确的姓名和学号！'); window.location.href='register.php';</script>");
+ 	if ((checkstudent($sid)) != $name) die("<script>alert('学号与姓名绑定失败！\\n确保输入了正确的姓名和学号！'); window.location.href='register.php';</script>");
 	if (checkreg($sid)) die("<script>alert('你已经注册，请勿重复操作！'); window.location.href='login.php';</script>");
 
 	
