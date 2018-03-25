@@ -21,7 +21,11 @@
 - PHP 5.6+  
 - MySQL **5.7**
 
+## See More
+[WiKi][2]
+
 ## **Try** It Out
 [**戳我**][1]
 
-[1]:https://itd.mmts.fun
+[1]:http://itd.mmts.fun
+[2]:https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS/wiki
