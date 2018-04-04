@@ -3,6 +3,17 @@
 Author : LD and more
 */
 
+//操作记录函数
+function oper_re($operator,$action,$evenid){
+	require("sql.config.php");
+	switch($action){
+		case "scorechange":
+			$sql = "INSERT INTO oper_record (operator,evenid) VALUES ('$operator','$evenid')";
+			mysqli_query($conn,$sql);
+			break;
+	}
+}
+
 //是否已经注册检验
 function checkreg($sid){
 	require("sql.config.php");
@@ -11,7 +22,7 @@ function checkreg($sid){
 		else return true;
 }
 
-//原因处理后 返回函数
+//原因处理函数   1为格式检验布尔  2为日期分割
 function processreason($action,$reason){
 	if ($action ==1){
 	$month = substr($reason, 0,2);
@@ -28,7 +39,7 @@ function processreason($action,$reason){
 	}
 }
 
-//返回学生姓名  核对函数
+//返回学生姓名  核对姓名与学号绑定关系函数
 function checkstudent($sid){
 	require("sql.config.php");
 	$sql = "SELECT name FROM students WHERE sid = '$sid'";
@@ -37,7 +48,7 @@ function checkstudent($sid){
 }
 
 
-//判断学号对应的学生是否存在
+//判断学号对应的学生是否'存在'   适用于无姓名的时候
 function isexist($sid){
 	require("sql.config.php");  //不可用once，否则会出错
 	$sql = "SELECT  sid FROM students WHERE sid='$sid'";

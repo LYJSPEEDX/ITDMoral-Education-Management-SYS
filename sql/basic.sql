@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2018 年 03 月 18 日 05:53
+-- 生成日期: 2018 年 04 月 04 日 14:24
 -- 服务器版本: 5.6.13
 -- PHP 版本: 5.4.17
 
@@ -29,11 +29,32 @@ USE `itdmoral`;
 --
 
 CREATE TABLE IF NOT EXISTS `detail` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ID` int(11) NOT NULL AUTO_INCREMENT COMMENT '唯一事件号',
   `sid` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '学号',
   `reason` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '原因',
   `schange` int(11) NOT NULL COMMENT '分数变动',
   PRIMARY KEY (`ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `detail`
+--
+
+INSERT INTO `detail` (`ID`, `sid`, `reason`, `schange`) VALUES
+(1, '0106', '0404itd', 2);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `oper_record`
+--
+
+CREATE TABLE IF NOT EXISTS `oper_record` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `operator` varchar(10) COLLATE utf8_bin NOT NULL COMMENT '操作者',
+  `evenid` int(4) NOT NULL COMMENT '事件号',
+  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '时间戳',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -63,7 +84,7 @@ INSERT INTO `students` (`ID`, `sid`, `name`, `score`) VALUES
 (3, '0103', '关仲堯', 90),
 (4, '0104', '李锦坤', 90),
 (5, '0105', '李志超', 90),
-(6, '0106', '梁奕隽', 90),
+(6, '0106', '梁奕隽', 92),
 (7, '0107', '林尤森', 90),
 (8, '0108', '刘高垚', 90),
 (9, '0109', '刘广生', 90),
@@ -695,7 +716,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `usrname` varchar(15) CHARACTER SET utf8 NOT NULL COMMENT '用户ID，登录名',
   `sid` varchar(4) CHARACTER SET utf8 NOT NULL COMMENT '学号',
-  `pw` varchar(32) CHARACTER SET utf8 NOT NULL COMMENT 'MD5之后的密码',
+  `pw` varchar(32) CHARACTER SET utf8 NOT NULL,
   `status` varchar(6) CHARACTER SET utf8 NOT NULL COMMENT '用户状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='用户表' AUTO_INCREMENT=1 ;

@@ -1,38 +1,25 @@
 <?php
-//启用Session，必须在所有PHP代码前使用。
+
 session_start();
 
 require_once("sql.config.php");
 
-//判断是否已提交数据，若没有则不处理
 if(isset($_POST) && $_POST){
 
-  //获取usr编辑框的内容（usr为编辑框的Name）
-  $usr=$_POST['usr'];
+  $sid=$_POST['sid'];
 
   $pw=($_POST['pw']);
   
-  //定义要执行的SQL语句，在适当位置插入变量↓↓↓。常用SQL语句看Wiki
-  $sql="SELECT * FROM user WHERE sid='$usr'";
+  $sql="SELECT * FROM user WHERE sid='$sid'";
 
-  //执行语句，第一个参数为数据库连接（已配置），第二个为SQL语句
-  $query=mysqli_query($conn,$sql);
-
-  //略……（除了SELECT，其他都不用fetch_array）
-  $result=mysqli_fetch_assoc($query);
-  
-  //获取表数据，$result['xx']的xx为表字段名
-  $indb_pw=$result['pw'];
-
-  $user_status = $result['status'];
+  $result=mysqli_fetch_assoc(mysqli_query($conn,$sql));
 
   //判断输入的密码是否与表内匹配
-  if($pw==$indb_pw && $user_status == "admin"){
-    //匹配，将Session-isLog定义为true
-    $_SESSION['isLog']=true;
+  if($pw== $result['pw'] && $result['status'] == "admin"){
 
-    //将表单的usr数据存入Session，可为中文
-    $_SESSION['name']=$usr;
+    $_SESSION['name']=$result['usrname'];          //写入操作人姓名用于nav
+    $_SESSION['isLog']=true;          //确定登录状态
+    $_SESSION['sid']=$sid;              //写入操作人学号用于oper_re
 
     //跳转,"Location: www.baidu.com"
     header("Location: scorechange.php");
@@ -65,7 +52,7 @@ if(isset($_POST) && $_POST){
 	</tr> 
   	<tr>
   		<td align="center">学号</td>
-  		<td align="center"><input type="text" name="usr"></td>
+  		<td align="center"><input type="text" name="sid"></td>
 	<tr/>
 	<tr>
 		<td align="center">密码</td>

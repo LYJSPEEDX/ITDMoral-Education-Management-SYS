@@ -13,16 +13,16 @@ if(isset($_POST) && $_POST ){
 	$s=$_POST['s'];
 	$reason = $_POST['reason'];
 	
-	//对学号、操作、原因进行第一次验证
+	//对学号、操作、原因进行验证
 	if (strlen($reason) <6 || !processreason(1,$reason))  die ("<script>alert('日期原因参数出错！');window.location.href='scorechange.php'</script>");
 	if (isexist($sid)){
 		$output = processinputstr($s);
 		$action = $output[0];
 		$number = $output[1];
 		if ($action == 3 )
-			die("<script>alert('分数参数出错！\\n不符合分数操作规则！');window.location.href='scorechange.php';</script>");
+			die("<script>alert('分数参数出错！\\n不符合分数操作规则！');alert('分数参数出错！\\n不符合分数操作规则！');window.location.href='scorechange.php';</script>");
 	}else{
-		die("<script>alert('学号输入出错！\\n该学生不存在！');window.location.href='scorechange.php';</script>");
+		die("<script>alert('学号输入出错！\\n该学生不存在！');alert('学号输入出错！\\n该学生不存在！');window.location.href='scorechange.php';</script>");
 	}
 
 	//核对变量生成
@@ -40,9 +40,16 @@ if(isset($_POST) && $_POST ){
         $sqldetail= "INSERT INTO detail (sid,reason,schange) VALUES('$sid','$reason','$number')";
 	$sqltotal = "UPDATE students SET score = score+'$number'  WHERE sid = '$sid'";
 	if (mysqli_query($conn,$sqltotal) && mysqli_query($conn,$sqldetail)) {
-		$action = $action."操作成功";}else{
-			$action = $action."最终操作失败";
+		$action = $action."操作成功";
+		$evenid = mysqli_fetch_array(mysqli_query($conn,"SELECT max(ID) from detail"),MYSQLI_NUM);      //获取evenid
+		$evenid = $evenid[0];
+	}else{
+			die("<script>alert('严重错误!!');alert('严重错误,请联系管理部门!!');window.location.href='scorechange.php';</script>");
 		}
+
+	//记录操作
+	$operator = $_SESSION['sid'].$_SESSION['name'];
+	oper_re($operator,"scorechange",$evenid);
 }
 ?>
 
