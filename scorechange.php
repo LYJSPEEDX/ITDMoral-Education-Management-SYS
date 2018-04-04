@@ -50,7 +50,7 @@ if(isset($_POST) && $_POST ){
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
 <title>ITD德育分插入面板</title>
 <?php include("head.php");  ?>
 </head>
@@ -58,6 +58,34 @@ if(isset($_POST) && $_POST ){
 <?php 
 	include("nav.php");
 ?>
+<form method="post">
+	<table border="1" align="center">
+		<th colspan="2">德育分更改入口</th>
+		<tr>
+			<th>学号</th>
+			<td align="center"><input type="text" name="sid"></td>
+		</tr>
+		<tr>
+			<th>分数修改</th>
+			<td align="center"><input type="text" name="s"></td>
+		</tr>
+		<tr>
+			<th>日期原因</th>
+			<td align="center"><input type="text" name="reason"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent', '分数录入', '基本'])" value="确定"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><b>扣分输入'-'，单次变动≤20分</b></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><b><font color="blue">ITD权限监测系统：<br>阁下操作正在被记录，请自重！</font></b></td>
+		</tr>
+	</table>
+</form>
+
+<!--
 <form method="post">
 <table border="1" align="center">
 <tr>
@@ -80,6 +108,7 @@ if(isset($_POST) && $_POST ){
 	<td colspan="3" align="center"><b><font color="blue">ITD权限监测系统：阁下操作正在被记录，请自重！</b></td>
 </table>
 </form>
+!-->
 <?php
  if (isset($action))echo " <font color='red'>DEBUG INFO: action: |$action|          number: |$number|</font>";    //debug
 ?>

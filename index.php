@@ -46,7 +46,7 @@ if(isset($_POST) && $_POST){
 				<td align="center"><input type="text" name="sid" required="required"></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="查询" onclick="_hmt.push(['_trackEvent', '查询', '普通用户'])"><button onclick="window.location.href='login.php'">部员登录</button></td>
+				<td colspan="2" align="center"><input type="submit" value="查询" onclick="_hmt.push(['_trackEvent', '查询', '基本查询'])"><button onclick="window.location.href='login.php'">部员登录</button></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">请在此键入你的<b>个人资料</b>开始查询<br>ITD拥有该系统最终解释权<br><b><font color="blue">阁下操作正在被记录<br>任何破解该系统的行为将受到纪律检控</b></td>
