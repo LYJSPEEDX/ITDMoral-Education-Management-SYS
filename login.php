@@ -1,6 +1,11 @@
 <?php
 
+
 session_start();
+
+if( isset($_SESSION['isLog']) &&  $_SESSION['isLog']==true){
+  header("Location: scorechange.php");
+}
 
 require_once("sql.config.php");
 

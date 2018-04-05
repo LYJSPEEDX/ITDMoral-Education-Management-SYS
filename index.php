@@ -1,9 +1,20 @@
 <?php
 
+session_start([
+		'gc_maxlifetime' => '86400',
+		'cookie_lifetime' => '86400',
+			]);
+
+if (!isset($_SESSION['time'])) $_SESSION['time']= 5;
+//$_SESSION['time'] = debug ;
+
 require("sql.config.php");
 require("base_utils.php");
 
 if(isset($_POST) && $_POST){
+
+	if ($_SESSION['time'] < 1 ) die ("<script>alert('本日查询次数已用完!'); window.location.href='index.php';</script>");
+
 	$name= $_POST['name'];
 	$sid = $_POST['sid'];
 
@@ -16,7 +27,8 @@ if(isset($_POST) && $_POST){
 	$sqltotal = "SELECT score FROM students WHERE sid='$sid'";
 	$total = mysqli_fetch_assoc(mysqli_query($conn,$sqltotal));
 	$total = $total['score'];
-	
+
+	--$_SESSION['time'];         //次数限制
 }
 
 ?>
@@ -49,7 +61,10 @@ if(isset($_POST) && $_POST){
 				<td colspan="2" align="center"><input type="submit" value="查询" onclick="_hmt.push(['_trackEvent', '查询', '基本查询'])"><button onclick="window.location.href='login.php'">部员登录</button></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center">请在此键入你的<b>个人资料</b>开始查询<br>ITD拥有该系统最终解释权<br><b><font color="blue">阁下操作正在被记录<br>任何破解该系统的行为将受到纪律检控</b></font></td>
+				<td colspan="2" align="center"><b>防止滥用,你今天还剩<font color="blue">&nbsp<?php echo $_SESSION['time'] ?>&nbsp</font>次查询机会</b></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">请在此键入你的<b>个人资料</b>开始查询<br>ITD拥有该系统最终解释权<br><b><font color="blue">阁下操作正在被记录</font><br><font color="red">任何破解该系统的行为将受到纪律检控</b></font></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><a href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">ITD-MEMS V1.1β</a>&nbsp&nbsp©LYJ Solutions</td>
