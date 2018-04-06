@@ -5,7 +5,7 @@ session_start([
 		'cookie_lifetime' => '86400',
 			]);
 
-if (!isset($_SESSION['time'])) $_SESSION['time']= 5;
+if (!isset($_SESSION['time'])) $_SESSION['time'] = 3;
 //$_SESSION['time'] = debug ;
 
 require("sql.config.php");
