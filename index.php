@@ -67,7 +67,7 @@ if(isset($_POST) && $_POST){
 				<td colspan="2" align="center">请在此键入你的<b>个人资料</b>开始查询<br>ITD拥有该系统最终解释权<br><b><font color="blue">阁下操作正在被记录</font><br><font color="red">任何破解该系统的行为将受到纪律检控</b></font></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><a href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">ITD-MEMS V1.1β</a>&nbsp&nbsp©LYJ Solutions</td>
+				<td colspan="2" align="center"><a href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS" onclick="_hmt.push(['_trackEvent', '周边', '查看github'])">ITD-MEMS V1.1β</a>&nbsp&nbsp©LYJ Solutions</td>
 			</tr>
 		</table>
 	</form>
