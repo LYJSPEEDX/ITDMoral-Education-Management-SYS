@@ -77,7 +77,7 @@ if(isset($_POST) && $_POST){
 			<tr>
 				<?php 
 				echo <<<EOT
-				<td colspan="2" align="center"><b>系统统计</b><br>全级共<b>{$rows}</b>条记录||级平均分<b>{$avg}</b><br>最后更新于{$last}</td>
+				<td colspan="2" align="center"><b>系统统计</b><br>全级共<b><font color="blue">{$rows}</font></b>条记录||级平均分<b><font color="blue">{$avg}</font></b><br>最后更新于{$last}</td>
 EOT;
 				?>
 			</tr>
