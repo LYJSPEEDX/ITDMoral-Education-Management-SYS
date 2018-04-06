@@ -4,11 +4,16 @@ Author : LD and more
 */
 
 //操作记录函数
-function oper_re($operator,$action,$evenid){
+function oper_re($operator,$action,$evenid,$note = null){
 	require("sql.config.php");
 	switch($action){
 		case "scorechange":
 			$sql = "INSERT INTO oper_record (operator,evenid) VALUES ('$operator','$evenid')";
+			mysqli_query($conn,$sql);
+			break;
+		case "delevent":
+			$evenid = "DEL".$evenid;
+			$sql = "INSERT INTO oper_record(operator,evenid,note) VALUES ('$operator','$evenid','$note')";
 			mysqli_query($conn,$sql);
 			break;
 	}

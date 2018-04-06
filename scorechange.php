@@ -81,7 +81,7 @@ if(isset($_POST) && $_POST ){
 			<td align="center"><input type="text" name="reason"></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent', '分数录入', '基本'])" value="确定"></td>
+			<td colspan="2" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent', '分数', '录入'])" value="确定"></td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><b>扣分输入'-'，单次变动≤20分</b></td>
@@ -91,31 +91,6 @@ if(isset($_POST) && $_POST ){
 		</tr>
 	</table>
 </form>
-
-<!--
-<form method="post">
-<table border="1" align="center">
-<tr>
-		<th>操作学号</th>
-		<th>修改分数</th>
-		<th>日期及原因</th>
-</tr>
-<tr>
-		<td align="center"><input type="text" name="sid"></td>
-		<td align="center"><input type="text" name="s"></td>
-		<td align="center"><input type="text" name="reason"></td>
-</tr>
-<tr>
-		<td colspan="3" align="center"><input type="submit" onclick="_hmt.push(['_trackEvent', 'scorechange', 'basicentry'])" value="确定"></td>
-</tr>
-<tr>
-	<td colspan="3" align="center"><b>注意：扣分请输入'-'，单次分数变动不可大于20分！</b></td>
-</tr>
-<tr>
-	<td colspan="3" align="center"><b><font color="blue">ITD权限监测系统：阁下操作正在被记录，请自重！</b></td>
-</table>
-</form>
-!-->
 <?php
  if (isset($action))echo " <font color='red'>DEBUG INFO: action: |$action|          number: |$number|</font>";    //debug
 ?>

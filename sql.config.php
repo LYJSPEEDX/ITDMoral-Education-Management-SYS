@@ -8,7 +8,9 @@
 
   //PHP内置函数（Errno为错误码）
   if(mysqli_connect_errno($conn)){
-    die("无法连接数据库，错误代码:".mysqli_connect_errno($conn));
+  	$error = mysqli_connect_errno($conn);
+  	for ($x = 0;$x<=500;$x++) echo "<b><font color = blue>嚴重錯誤,請聯繫管理部門,錯誤代碼為ITDMEMS_ERROR_SQL</font><font color = red>{$error}</font></b>";
+  	die;
   }
 
   //设定为UTF-8

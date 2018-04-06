@@ -1,9 +1,6 @@
 <?php
 
-session_start([
-		'gc_maxlifetime' => '86400',
-		'cookie_lifetime' => '86400',
-			]);
+session_start();
 
 if (!isset($_SESSION['time'])) $_SESSION['time'] = 3;
 //$_SESSION['time'] = debug ;
