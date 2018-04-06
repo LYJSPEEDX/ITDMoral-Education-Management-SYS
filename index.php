@@ -11,6 +11,14 @@ if (!isset($_SESSION['time'])) $_SESSION['time'] = 3;
 require("sql.config.php");
 require("base_utils.php");
 
+//统计
+$rows= mysqli_fetch_assoc(mysqli_query($conn,"SELECT count(*) FROM detail"));
+$rows = $rows['count(*)'];
+$avg = mysqli_fetch_assoc(mysqli_query($conn,"SELECT avg(score) FROM students"));
+$avg = $avg['avg(score)'];
+$last = mysqli_fetch_assoc(mysqli_query($conn,"SELECT time FROM oper_record ORDER BY id DESC LIMIT 1"));
+$last = $last['time'];
+
 if(isset($_POST) && $_POST){
 
 	if ($_SESSION['time'] < 1 ) die ("<script>alert('本日查询次数已用完!'); window.location.href='index.php';</script>");
@@ -65,6 +73,13 @@ if(isset($_POST) && $_POST){
 			</tr>
 			<tr>
 				<td colspan="2" align="center">请在此键入你的<b>个人资料</b>开始查询<br>ITD拥有该系统最终解释权<br><b><font color="blue">阁下操作正在被记录</font><br><font color="red">任何破解该系统的行为将受到纪律检控</b></font></td>
+			</tr>
+			<tr>
+				<?php 
+				echo <<<EOT
+				<td colspan="2" align="center"><b>系统监测</b><br>全级共<b>{$rows}</b>条记录||级平均分<b>{$avg}</b><br>最后更新于{$last}</td>
+EOT;
+				?>
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><a href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS" onclick="_hmt.push(['_trackEvent', '周边', '查看github'])">ITD-MEMS V1.1β</a>&nbsp&nbsp©LYJ Solutions</td>
