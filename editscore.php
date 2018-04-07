@@ -11,7 +11,8 @@ if (isset($_POST) && $_POST){
 	$originalinfo= mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM detail WHERE ID='$evenid'"));
 	if (!isset($originalinfo)) die("<script> alert('不存在该事件号!');window.location.href='editscore.php';</script>");
 	$sid = $originalinfo['sid'];      $schange = -$originalinfo['schange'];  $notereason = $sid."号的".$originalinfo['reason']."事件";
-	echo "<script>var msg = '即将对{$sid}号学生进行记录删除\\n删除{$evenid}号事件\\n并{$schange}分\\n确定?  该记录只会表征性删除'; if(! confirm(msg)) window.location.href='editscore.php';</script>";
+	echo "<script>var msg = '即将对{$sid}号学生进行记录删除\\n删除{$evenid}号事件\\n并{$schange}分\\n确定?  该记录只会表征性删除'; if(!confirm(msg)) alert('请联系管理部门进行操作回滚!');</script>";
+
 
 	mysqli_query($conn,"DELETE from detail WHERE ID='$evenid'");
 	if(mysqli_query($conn,"UPDATE students SET score = score + '$schange' WHERE sid='$sid'")) $return = true;

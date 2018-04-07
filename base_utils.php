@@ -16,6 +16,10 @@ function oper_re($operator,$action,$evenid,$note = null){
 			$sql = "INSERT INTO oper_record(operator,evenid,note) VALUES ('$operator','$evenid','$note')";
 			mysqli_query($conn,$sql);
 			break;
+		case "login":
+			$sql = "INSERT INTO oper_record(operator,evenid) VALUES ('$operator','$evenid')";
+			mysqli_query($conn,$sql);
+			break;
 	}
 }
 

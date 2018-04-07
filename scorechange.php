@@ -33,8 +33,8 @@ if(isset($_POST) && $_POST ){
   	//最终核对
         echo "<script>
         var msg = '即将对 $check (学号:  $sid )的分数进行修改 \\n操作如下:\\n以 $reason 的原因\\n$action  $num 分\\n确定？\\n注:该操作将被记录！'; 
-        if(! confirm(msg)) window.location.href='scorechange.php';
-        </script>";
+        if(!confirm(msg)) alert('请联系管理部门进行操作回滚!');</script>";
+	
 
         //数据库操作
         $sqldetail= "INSERT INTO detail (sid,reason,schange) VALUES('$sid','$reason','$number')";

@@ -7,7 +7,8 @@ if( isset($_SESSION['isLog']) &&  $_SESSION['isLog']==true){
   header("Location: scorechange.php");
 }
 
-require_once("sql.config.php");
+require("sql.config.php");
+require("base_utils.php");
 
 if(isset($_POST) && $_POST){
 
@@ -26,7 +27,9 @@ if(isset($_POST) && $_POST){
     $_SESSION['isLog']=true;          //确定登录状态
     $_SESSION['sid']=$sid;              //写入操作人学号用于oper_re
 
-    //跳转,"Location: www.baidu.com"
+    //记录
+    $operator = $_SESSION['sid'].$_SESSION['name'];
+    oper_re($operator,"login","登录");
     header("Location: scorechange.php");
   }
 
