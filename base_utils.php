@@ -1,6 +1,6 @@
 <?php
 /*Custom Function Repository of ITD
-Author : LD and more
+Author : LD
 */
 
 //操作记录函数

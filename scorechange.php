@@ -66,7 +66,7 @@ if(isset($_POST) && $_POST ){
 	include("nav.php");
 ?>
 <form method="post">
-	<table border="1" align="center">
+	<table border="5" align="center">
 		<th colspan="2">德育分更改入口</th>
 		<tr>
 			<th>学号</th>
@@ -94,6 +94,6 @@ if(isset($_POST) && $_POST ){
 <?php
  if (isset($action))echo " <font color='red'>DEBUG INFO: action: |$action|          number: |$number|</font>";    //debug
 ?>
-<!-- <?php include("footer.php"); ?> -->
+
 </body>
 </html>

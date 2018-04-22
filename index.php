@@ -1,5 +1,17 @@
-<?php
+<!doctype html>
+<html>
+<head>
+	<?php include('head.php'); ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no,user-scalable=no">
+	<title>ITD德育分系统</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+	body{padding-top: 70px;}
+	</style>
+</head>
 
+<body>
+<?php
 require("sql.config.php");
 require("base_utils.php");
 
@@ -18,7 +30,7 @@ $last = $last['time'];
 
 if(isset($_POST) && $_POST){
 
-	if ($_COOKIE['time'] < 1 ) die ("<script>alert('本日查询次数已用完!'); window.location.href='index.php';</script>");
+	//if ($_COOKIE['time'] < 1 ) die ("<script>alert('本日查询次数已用完!'); window.location.href='index.php';</script>");
 
 	$name= $_POST['name'];
 	$sid = $_POST['sid'];
@@ -36,69 +48,71 @@ if(isset($_POST) && $_POST){
 	--$_COOKIE['time'];
 	setcookie("time", $_COOKIE['time']);       //次数限制
 }
-
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<title>ITD德育分查询页面</title>
-<?php include("head.php"); ?>
-</head>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<a class="navbar-brand" href="#">ITD德育系统公众查询</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="index.php">公众查询 <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">教师系统</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">部员系统</a>
+			</li>
+			<li class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          				<a class="dropdown-item" href="#">系统后台数据</a>
+          				<div class="dropdown-divider"></div>
+          				<a class="dropdown-item" href="#">系统开源</a>
+          				<a class="dropdown-item" href="#">关注我们</a>
+        			</div>
+      			</li>
+      			<li class="nav-item">
+        			<a class="nav-link disabled" href="#">ITD-MEMS V2.0α</a>
+      			</li>
+		</ul>
+	</div>
+</nav>
 
-<body>
-	<form method="post">
-		<table border="1" align="center">
-			<tr>
-				<th colspan="2" width=90%>广州市第三中学高一级德育分个人查询入口</th>
-			</tr>
-			<tr>
-				<td align="center"><b>姓名</b></td>
-				<td align="center"><input type="text" name="name" required="required"></td>
-			</tr>
-			<tr>
-				<td align="center"><b>学号</b></td>
-				<td align="center"><input type="text" name="sid" required="required"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="查询" onclick="_hmt.push(['_trackEvent', '查询', '基本查询'])"><button onclick="window.location.href='login.php'">部员登录</button></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><b>防止滥用,你今天还剩<font color="blue">&nbsp<?php echo $_COOKIE['time'] ?>&nbsp</font>次查询机会</b></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">请在此键入你的<b>个人资料</b>开始查询<br>ITD拥有该系统最终解释权<br><b><font color="blue">阁下操作正在被记录</font><br><font color="red">任何破解该系统的行为将受到纪律检控</b></font></td>
-			</tr>
-			<tr>
-				<?php 
-				echo <<<EOT
-				<td colspan="2" align="center"><b>系统统计</b><br>全级共<b><font color="blue">{$rows}</font></b>条记录||级平均分<b><font color="blue">{$avg}</font></b><br>最后更新于{$last}</td>
-EOT;
-				?>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><a href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS" onclick="_hmt.push(['_trackEvent', '周边', '查看github'])">ITD-MEMS V1.1β</a>&nbsp&nbsp©LYJ Solutions</td>
-			</tr>
-		</table>
+<div class="container">
+	<div class="alert alert-warning" role="alert">你享有3次/天的查询机会</div>	
+
+	<form method="POST">
+		<fieldset class="form-group">
+			<label>姓名</label>
+			<input type="text" class="form-control" name="name" placeholder="请准确输入,用于隐私验证">
+		</fieldset>
+		<fieldset class="form-group">
+			<label>学号</label>
+			<input type="text" class="form-control" name="sid" placeholder="班级+学号四位形式">
+		</fieldset>
+		<button type="submit" class="btn btn-primary btn-block">查询</button>
 	</form>
+</div>
 
-	<?php
+
+ <?php
 	if (isset($total)) {
 		echo <<<EOT
-		<table border="1" align="center">
+		<div class="container" style="padding-top: 20px">
+		<table class="table table-sm table-bordered table-striped" style="text-align: center">
+		<thead class="thead-dark">
 			<tr>
-				<td align="center" colspan="5">以下为<b>{$name}(学号:{$sid})</b>的德育分事件记录<br>目前你的<b>总分</b>为<b>{$total}</b>分&nbsp&nbsp共检索到<b>{$rsnum}</b>条记录</td>
-			</tr>
-			<tr>
-				<th>序号</th>
-				<th width=20%>日期</th>
-				<th width=20%>原因</th>
+				<th>#</th>
+				<th>日期</th>
+				<th>原因</th>
 				<th>分数变动</th>
 				<th>受理编号</th>
 			</tr>
+			</thead>
 EOT;
 
 		$id = 1;
@@ -113,24 +127,23 @@ EOT;
 
 			echo <<<EOT
 			<tr>
-				<td align="center">$id</td>
-				<td align="center">{$m}月{$d}日</td>
-				<td align="center">$reason</td>
-				<td align="center">$schange</td>
-				<td align="center">#Ed$eventid.X</td>
+				<td>$id</td>
+				<td>{$m}月{$d}日</td>
+				<td>$reason</td>
+				<td>$schange</td>
+				<td>#Ed$eventid.X</td>
 			</tr>
 EOT;
 			$id++;
 		}
 		echo <<<EOT
-		<tr>
-			<td colspan="5" align="center">你正在使用由ITD研发并维护的德育分查询系统</td>
-		</tr>
 		</table>
+		</div>
 EOT;
 	}
+?>
 
-	?>
 </body>
-<!-- <?php include("footer.php"); ?> -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </html>
