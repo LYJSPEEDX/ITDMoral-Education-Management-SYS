@@ -139,7 +139,7 @@ if(isset($_POST) && $_POST){
 		<div class="container" style="padding-top: 20px">
 		<div class="card border-dark text-center" >
   			<div class="card-body" style="padding: 0.5rem; font-size: 15px; ">
-    				<p class="card-text">姓名: <strong>{$name}</strong>&nbsp&nbsp&nbsp学号: <strong>{$sid}</strong>&nbsp&nbsp&nbsp总分: <strong>{$total}</strong>&nbsp&nbsp&nbsp记录数: <strong>{$rsnum}</strong></p>
+    				<p class="card-text">姓名: <strong>{$name}</strong>&nbsp&nbsp&nbsp学号: <strong>{$sid}</strong><br>总分: <strong>{$total}</strong>&nbsp&nbsp&nbsp记录数: <strong>{$rsnum}</strong></p>
   			</div>
 		</div>
 
@@ -152,7 +152,7 @@ EOT;
 				<th>#</th>
 				<th>日期</th>
 				<th>原因</th>
-				<th>分数变动</th>
+				<th>变动</th>
 				<th>受理编号</th>
 			</tr>
 			</thead>
