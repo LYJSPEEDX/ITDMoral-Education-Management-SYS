@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 
 if( isset($_SESSION['isLog']) &&  $_SESSION['isLog']==true){
@@ -37,8 +35,7 @@ if(isset($_POST) && $_POST){
     $_SESSION['isLog']=false;
     echo "<script>alert('学号或密码输出出错！\\n或你未验证成功，Access Denied！\\n[ITD公告]暂时未开放非部内权限访问')</script>";
   }
-  
-} 
+  } 
 ?>
 
 <!DOCTYPE html>

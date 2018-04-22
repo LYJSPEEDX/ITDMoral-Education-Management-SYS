@@ -62,9 +62,6 @@ if(isset($_POST) && $_POST ){
 <?php include("head.php");  ?>
 </head>
 <body>
-<?php 
-	include("nav.php");
-?>
 <form method="post">
 	<table border="5" align="center">
 		<th colspan="2">德育分更改入口</th>
