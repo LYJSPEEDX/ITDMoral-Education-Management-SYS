@@ -4,10 +4,7 @@
 	<?php include('head.php'); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no,user-scalable=no">
 	<title>ITD德育分系统</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<style type="text/css">
-	body{padding-top: 70px;background-color: #f5f5f5;}
-	</style>
+
 <!--modal-->
 <div class="modal fade" id="inputerror" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -48,6 +45,7 @@
 require("sql.config.php");
 require("base_utils.php");
 
+//初始化查询
 if (!isset($_COOKIE['time'])) {
 	setcookie("time", 3,time()+86400);
 	echo  "<script>window.location='index.php';</script>";
@@ -63,12 +61,12 @@ $last = $last['time'];
 
 if(isset($_POST) && $_POST){
 
-	if ($_COOKIE['time'] < 1 ) die ("<script>$('#timeerror').modal();</script>");
+	if ($_COOKIE['time'] < 1 ) die ("<script>$('#timeerror').modal();</script>");  //次数超过限制
 
 	$name= $_POST['name'];
 	$sid = $_POST['sid'];
 
-	if ((checkstudent($sid)) != $name) die ("<script>$('#inputerror').modal();</script>");
+	if ((checkstudent($sid)) != $name) die ("<script>$('#inputerror').modal();</script>");  //输入错误
 
 	$sql = "SELECT * FROM detail WHERE sid='$sid'";
 	$query = mysqli_query($conn,$sql);
@@ -83,6 +81,7 @@ if(isset($_POST) && $_POST){
 }
 ?>
 
+<!-- 导航栏 -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 	<a class="navbar-brand" href="">三中高一ITD德育系统</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,11 +108,12 @@ if(isset($_POST) && $_POST){
         			</div>
       			</li>
       			<li class="nav-item">
-        			<a class="nav-link disabled" href="">ITD-MEMS V2.0α</a>
+        			<a class="nav-link disabled">ITD-MEMS V2.0α</a>
       			</li>
 		</ul>
 	</div>
 </nav>
+<!-- =============================================== -->
 
 <div class="container" style="max-width: 850px;">
 <div class="container">

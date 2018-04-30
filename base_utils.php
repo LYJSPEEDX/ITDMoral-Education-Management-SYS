@@ -3,6 +3,14 @@
 Author : LD
 */
 
+//登陆检查函数  系统必须调用
+function islog($type){
+	if ($_SESSION['status'] != 'root' && ($_SESSION['isLog'] == false || $_SESSION['status'] != $type)) {
+		session_destroy();
+		header("Location:index.php");
+	}
+}
+
 //操作记录函数
 function oper_re($operator,$action,$evenid,$note = null){
 	require("sql.config.php");

@@ -1,3 +1,4 @@
+<link href="css/bootstrap.min.css" rel="stylesheet">
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script>
@@ -9,3 +10,6 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+<style type="text/css">
+	body{padding-top: 70px;background-color: #f5f5f5;}
+</style>
