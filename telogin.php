@@ -27,14 +27,16 @@ if(isset($_POST) && $_POST){
   $sql="SELECT * FROM user WHERE usrname='$name'";
 
   $result=mysqli_fetch_assoc(mysqli_query($conn,$sql));
-  print_r($result);
+
   //判断输入的密码是否与表内匹配
-  if($pw== $result['pw'] && $result['status'] == "teacher"){
+  if($pw== $result['pw'] && ($result['status'] == "teacher" || $result['status'] == "root")){
 
     $_SESSION['name']=$result['usrname'];          //写入操作人姓名用于nav
     $_SESSION['isLog']=true;          //确定登录状态
     $_SESSION['sid']=null;              //写入操作人学号用于oper_re
     $_SESSION['status'] = 'teacher';    //写入用户角色
+
+    if ($result['status'] == "root") $_SESSION['status'] = 'root';
 
     //记录
     $operator = $_SESSION['name'];
