@@ -11,14 +11,14 @@
 ~~7. UI 提前完成~~   
 
 ## What's Shining
-浏览、事件统计  
-防越权  
-友好的UI  
-只有不断的完善！  
+部员系统
+教师系统
+结合bootstrap v4.1 的友好UI
+易于拓展的权限系统
 
 ## Requirement
 - LNMP  
-- PHP 5.6+  
+- PHP 7.0+  
 - MySQL **5.7**
 
 ## See More
