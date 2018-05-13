@@ -89,9 +89,13 @@ if(isset($_POST) && $_POST){
 	</button>
 	<div class="collapse navbar-collapse" id="navbarCollapse">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active">
-				<a class="nav-link" href="index.php">公众查询 <span class="sr-only">(current)</span></a>
-			</li>
+			<li class="nav-item dropdown active">
+        			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">公众查询</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          				<a class="dropdown-item active" href="index.php">德育分查询</a>
+          				<a class="dropdown-item" href="#">全级统计</a>
+        			</div>
+      			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="adlogin.php">部员系统</a>
 			</li>
@@ -101,8 +105,6 @@ if(isset($_POST) && $_POST){
 			<li class="nav-item dropdown">
         			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
         			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          				<a class="dropdown-item" href="#">系统后台数据</a>
-          				<div class="dropdown-divider"></div>
           				<a class="dropdown-item" href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">系统开源</a>
           				<a class="dropdown-item" href="#">关注我们</a>
         			</div>
@@ -117,7 +119,10 @@ if(isset($_POST) && $_POST){
 
 <div class="container" style="max-width: 850px;">
 <div class="container">
-	<h4>公众查询</h4>
+	<h4>公众德育分查询</h4>
+	<div class="alert alert-primary" role="alert">
+  	全级统计功能已开通查询，赶紧去浏览菜单体验下～！
+	</div>
 	<?php echo"<div class='alert alert-warning' role='alert' style='font-size: 15px;'>你享有3次/天的查询机会<br>你今天还剩<strong>{$_COOKIE['time']}</strong>次机会<br><strong>请勿尝试破解该系统</strong></div>"; ?>	
 
 	<form method="POST"  style="padding-bottom: 20px">	

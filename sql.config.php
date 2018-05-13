@@ -1,13 +1,26 @@
 <?php
-
-  $conn=@mysqli_connect("localhost","itdmoral","itdmoral","itdmoral","3306");
+  $conn=@mysqli_connect("localhost","root","81082936Jun","itdmoral");
 
   //PHP内置函数（Errno为错误码）
   if(mysqli_connect_errno($conn)){
   	$error = mysqli_connect_errno($conn);
-  	for ($x = 0;$x<=500;$x++) echo "<b><font color = blue>嚴重錯誤,請聯繫管理部門,錯誤代碼為ITDMEMS_ERROR_SQL</font><font color = red>{$error}</font></b>";
-  	die;
+  	echo <<<EOT
+  	<div class="modal fade" id="dberror" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">OOPS...</h5>
+      </div>
+      <div class="modal-body">
+        抱歉，系统目前尚不可用，请稍后访问！
+      </div>
+      <div class="modal-footer">
+        错误代码，请提交于ITD：{$error}
+      </div>
+    </div>
+  </div>
+</div>
+EOT;
+  	die ("<script>$('#dberror').modal();</script>");
   }
-
-  mysqli_set_charset($conn,"utf8");
 ?>

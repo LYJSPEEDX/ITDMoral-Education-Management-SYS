@@ -72,8 +72,6 @@ if(isset($_POST) && $_POST){
 			<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="#">系统后台数据</a>
-									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">系统开源</a>
 									<a class="dropdown-item" href="#">关注我们</a>
 							</div>
