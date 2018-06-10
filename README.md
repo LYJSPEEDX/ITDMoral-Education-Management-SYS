@@ -15,17 +15,27 @@
 教师系统  
 结合bootstrap v4.1 的友好UI  
 易于拓展的权限系统  
+AJAX 友好的操作流程  
+
+## What's Next
+jQuery的应用
+WeChat小程序
 
 ## Requirement
 - LNMP  
 - PHP 7.0+  
 - MySQL **5.7**
 
-## See More
+## Donate
+如果你深受该项目启发，捐赠吧。。。。
+![donate][3]
+
+## See More 配置&額外注意事項
 [WiKi][2]
 
 ## **Try** It Out
 [**戳我**][1]
 
-[1]:http://mmts.fun
+[1]:https://itd.mmts.fun
 [2]:https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS/wiki
+[3]:https://raw.githubusercontent.com/LYJSPEEDX/ITDMoral-Education-Management-SYS/master/Donate.JPG
