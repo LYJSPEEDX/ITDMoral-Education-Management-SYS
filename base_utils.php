@@ -1,13 +1,88 @@
 <?php
-/*Custom Function Repository of ITD
-Author : LD
-*/
+if (isset($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"]){
+	parse_str($_SERVER["QUERY_STRING"],$par);
+	if (isset($par['mode'])){
+  	$mode = $par['mode'];    	    //工作模式
+		//if(isset($par['par'])) $par = $par['par'];        //参数
+	  	switch ($mode) {
+		  	case "check":
+		  		$sid = $par['sid'];
+	  			ReturnStudentinAjax($sid);
+	  			break;
+			case "eventcheck":
+				$eventid = $par['eventid'];
+				ReturnEventDetailinAjax($eventid);
+				break;
+			case "credit":
+				break;
+			case "classavg":
+				ReturnClassAvg();
+				break;
+			default:
+				break;
+		}
+  }
+}
 
-//登陆检查函数  系统必须调用
+//返回事件详情
+function ReturnEventDetailinAjax($eventid){
+	require('sql.config.php');
+	$sqldetail = "SELECT * FROM detail WHERE ID='{$eventid}'";
+	$detail = mysqli_query($conn,$sqldetail);
+	if (mysqli_num_rows($detail) != 1) {
+		echo "false";
+		die;
+	}
+
+	$detail = mysqli_fetch_assoc($detail);
+	$sqlname = "SELECT * FROM students WHERE sid = '{$detail['sid']}'";
+	$stuedntdetail = mysqli_fetch_assoc(mysqli_query($conn,$sqlname));
+
+	$name = $stuedntdetail['name'];
+	$total = $stuedntdetail['score'];
+	$sid = $detail['sid'];
+	$reason = $detail['reason'];
+	$scorechange = -$detail['schange'];     //为本次删除将要变动的值
+
+	echo "{$name}&{$total}&{$sid}&{$reason}&{$scorechange}";
+}
+
+//输出各班平均和全级平均
+function ReturnClassAvg(){
+	require('sql.config.php');
+	for ($i = 1 ;$i <= 12; $i ++){
+		$class = sprintf("%02d",$i);
+		$avg = mysqli_fetch_assoc(mysqli_query($conn,"SELECT avg(score) FROM students WHERE sid LIKE '{$class}__'"));
+		$avg = $avg['avg(score)'];   //各班平均
+		echo $avg."&";
+	}
+	$avg = mysqli_fetch_assoc(mysqli_query($conn,"SELECT avg(score) FROM students"));
+	$avg = $avg['avg(score)'];   //级平均
+	echo $avg; 
+}
+
+//ajax返回学生姓名校对函数，itdmems.js调用
+function ReturnStudentinAjax($sid){
+	if (isexist($sid)) $return = (checkstudent($sid)); else $return = "false";
+	echo $return;
+}
+
+//登陆检查函数  管理页面必须调用
 function islog($type){
 	if ($_SESSION['status'] != 'root' && ($_SESSION['isLog'] == false || $_SESSION['status'] != $type)) {
 		session_destroy();
-		header("Location:index.php");
+		switch ($type) {
+			case 'admin':
+				$url = "adlogin.php";
+				break;
+			case 'teacher':
+			 	$url = "telogin.php";
+			 	break;
+			default:
+				$url = "index.php";
+				break;
+		}
+		header("Location:{$url}");
 	}
 }
 
@@ -21,7 +96,7 @@ function oper_re($operator,$action,$evenid,$note = null){
 			break;
 		case "delevent":
 			$evenid = "DEL".$evenid;
-			$sql = "INSERT INTO oper_record(operator,evenid,note) VALUES ('$operator','$evenid','$note')";
+			$sql = "INSERT INTO oper_record(operator,evenid,note) VALUES ('$operator','$evenid','$note')";    
 			mysqli_query($conn,$sql);
 			break;
 		case "login":
@@ -77,7 +152,7 @@ function isexist($sid){
 	}
 }
 
-
+//已弃用⬇
 //对输入的分数字符串进行检验和处理 
 function processinputstr($s){ 							
 	if ( strlen($s)  ==  0 ){

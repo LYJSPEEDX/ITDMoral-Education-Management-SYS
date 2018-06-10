@@ -1,0 +1,75 @@
+<!-- 导航栏 -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<a class="navbar-brand" href="">三中高一ITD德育系统</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<li id="public" class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">公众查询</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          				<a id="statistics" class="dropdown-item" href="index.php">首页</a>
+          				<a id="lookup" class="dropdown-item" href="public.php">德育分查询</a>
+        			</div>
+			</li>
+			<li id="admin" class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">部员系统</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          				<a id="staff" class="dropdown-item" href="staffindex.php">录入事件</a>
+          				<a id="del" class="dropdown-item" href="stadel.php">删除事件</a>
+        			</div>
+			</li>
+			<li id="teacher" class="nav-item">
+				<a class="nav-link" href="telogin.php">教师系统</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="out.php">注销</a>
+			</li>
+			<li class="nav-item dropdown">
+        			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          				<a class="dropdown-item" href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">系统开源</a>
+          				<a class="dropdown-item" href="#">关注我们</a>
+        			</div>
+      			</li>
+      			<li class="nav-item">
+        			<a class="nav-link disabled">ITD-MEMS V2.0α</a>
+      			</li>
+		</ul>
+	</div>
+</nav>
+<!-- =============================================== -->
+
+<script type="text/javascript">
+	//利用url 动态改导航栏样式
+ var url = window.location.pathname;
+ url = url.substr(1,5);
+ //window.alert(url);
+ switch(url) 
+ {
+ 	case 'publi':
+ 		document.getElementById('public').className = 'nav-item dropdown active';
+ 		document.getElementById('lookup').className= 'dropdown-item active';
+ 		break;
+ 	case '':
+ 	case 'index':
+ 		document.getElementById('public').className = 'nav-item dropdown active';
+ 		document.getElementById('statistics').className= 'dropdown-item active';
+ 		break;
+ 	case 'adlog':
+ 	case 'staff':
+ 		document.getElementById('admin').className = 'nav-item dropdown active';
+ 		document.getElementById('staff').className = 'dropdown-item active';
+ 		break;
+	case 'stade':
+		document.getElementById('admin').className = 'nav-item dropdown active';
+ 		document.getElementById('del').className = 'dropdown-item active';
+ 		break;
+	case 'telog':
+	case 'teach':
+	 document.getElementById('teacher').className = 'nav-item active';
+	 break;
+ }
+
+</script>

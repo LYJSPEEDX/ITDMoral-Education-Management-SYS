@@ -1,5 +1,5 @@
 <?php
-  $conn=@mysqli_connect("localhost","root","81082936Jun","itdmoral");
+  $conn=@mysqli_connect("host","usr","passwd","db");
 
   //PHP内置函数（Errno为错误码）
   if(mysqli_connect_errno($conn)){

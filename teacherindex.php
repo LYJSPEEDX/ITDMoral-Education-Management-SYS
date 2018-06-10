@@ -1,9 +1,6 @@
 <html>
 	<head>
-		<?php include('head.php'); ?>
-		<meta charset="utf-8">
-    		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    		<title>ITD德育系统-教师端</title>
+	<?php include('head.php'); ?>
   	</head>
 
 <?php
@@ -15,7 +12,7 @@ $operator = $_SESSION['name'];
 
 if (isset($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"]){
 	parse_str($_SERVER["QUERY_STRING"],$class);
-	$class = sprintf("%02d",$class['c']);
+	$class = sprintf("%02d",$class['c']);//补成两位数的整数形式
 	$show = true;
 
 	$sqldetail="SELECT * FROM detail WHERE sid LIKE '{$class}__' ORDER BY ID DESC";
@@ -34,43 +31,7 @@ if (isset($_SERVER["QUERY_STRING"]) && $_SERVER["QUERY_STRING"]){
 }
 ?>
 	<body>
-		<!-- 导航栏 -->
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand" href="">三中高一ITD德育系统</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="index.php">公众查询 <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="adlogin.php">部员系统</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="telogin.php">教师系统</a>
-				</li>
-				<li class="nav-item dropdown">
-        				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">更多</a>
-        				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          				<a class="dropdown-item" href="https://github.com/LYJSPEEDX/ITDMoral-Education-Management-SYS">系统开源</a>
-          				<a class="dropdown-item" href="#">关注我们</a>
-        				</div>
-      				</li>
-      				<li class="nav-item">
-      					<a class="nav-link" href="#top">返回顶部</a>
-  				</li>
-  				<li class="nav-item">
-      					<a class="nav-link" href="#detail">跳转到详细页</a>
-  				</li>
-      				<li class="nav-item">
-        					<a class="nav-link disabled">ITD-MEMS V2.0α</a>
-      				</li>
-				</ul>
-			</div>
-		</nav>
-		<!-- ================================== -->
+		
 		<span id="top" ></span>
 		<div class="container" style="max-width: 850px;">
 			<h4>教师班级查询页面</h4>
