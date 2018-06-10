@@ -1,5 +1,5 @@
 # ITDMoral-Education-Management-SYS
-为ERSD所开发的德育分统计&展示**级务**系统
+为ITD所开发的德育分统计&展示**级务**系统
 
 ## Development Schedule
 ~~1. 部内登分系统  
@@ -13,13 +13,14 @@
 ## What's Shining
 部员系统  
 教师系统  
-结合bootstrap v4.1 的友好UI  
+基于bootstrap v4.1 的友好现代化UI  
 易于拓展的权限系统  
-AJAX 友好的操作流程  
+运用AJAX 友好的操作流程  
+code less,do more 是项目宗旨，项目配备的大量检验/访问数据库的函数库  
 
 ## What's Next
-jQuery的应用
-WeChat小程序
+jQuery的应用  
+WeChat小程序(备到案再说吧...)  
 
 ## Requirement
 - LNMP  
